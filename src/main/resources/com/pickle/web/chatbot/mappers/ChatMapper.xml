@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pickle.web.chatbot.mappers.ChatMapper">
+    <insert id="insertData" parameterType="chat"
+            useGeneratedKeys="true" keyProperty="chatId">
+        insert into chat (user_code, chat_body, insert_date, update_date)
+            values (#{userCode}, #{chatBody}, now(), now())
+    </insert>
+
+    <select id="selectUserList" parameterType="int" resultType="chat">
+        select user_id as userId,
+        user_pw as userPw,
+        user_code as userCode,
+        home_class as homeClass,
+        cur_grade as curGrade,
+        name
+        from user
+        where id = #{id}
+    </select>
+</mapper>

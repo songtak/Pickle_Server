@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://211.186.44.249:13306/BitBox
+    username: bit
+    password: bit123$
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+server:
+  port: 5000
